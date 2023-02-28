@@ -30,7 +30,7 @@
     
 - Finally, the new `parquet` file can be find under `data/` folder named as `2023 DE_case_dataset_holes_error_warning.gz.parquet`.
 <br>
-<br>
+
 # Insights
 
 - There were many string columns where I assumed they would be misleading in data processing step but there was no need to do any Data Type conversion considering all the string columns were holding data similar to json format. So, it was better to load the data in json format and then doing the evaluations.
@@ -40,15 +40,15 @@
 - There were *9789* `null` values in the `holes` column, these rows could be filled if there would be meaningful values that are extractable from the other columns, or values that could be dropped to increase the processing speed since the `null` hole values are making *~%49* of the data. But none of the choices would be applicable in this case since there is no values to fill from - *indeed, the part might not have any hole at all -,* or a big dataset would make the process slower. So, it is better to keep as it is to have an insight about the non-processable data in the output.
 - Both `warning` and `error` values are calculated considering the given formula as mentioned below. In fact, values having `error` were including the values having `warning` in every occurrence. There could be 2 alternative representing options for values having `warning`:
 
-                $length > radius * 2 * 10$ *(poor ratio → warnings)*
-                $length > radius * 2 * 40$ *(critical ratio → errors)*
+                                            length > radius * 2 * 10 (poor ratio → warnings)
+                                            length > radius * 2 * 40 (critical ratio → errors)
 
     - **Option 1**: Leaving the `has_unreachable_hole_warning` column `empty or NA` for the values having `has_unreachable_hole_error` as `True`.
     - **Option 2**: Labelling the `has_unreachable_hole_warning` column as `True` when the `has_unreachable_hole_error` is `True` as well.
     
     I followed the **Option 2** as in the sample below since there might be misleading values in `has_unreachable_hole_warning` when it is inspected without taking `has_unreachable_hole_error` column into consideration.
     
-    <p style="text-align:center;"><img src="images/df_info2.png" width=9850/></p>
+    <p style="text-align:center;"><img src="images/df_info2.png" width=850/></p>
     
 - Two functions named as `calculate_hole_error` and `calculate_hole_warning` defined to calculate the `error` and `warning` conditions in the dataframe. Both of these functions take `holes` input as the parameter and return the result as `True` if there is a warning/error, and `False` otherwise. These functions are slightly differ from each other at the point where the condition is checked.
 - The functions explained above applied to `has_unreachable_hole_error` and `has_unreachable_hole_warning` columns respectively while creating the columns on the go. The built-in `df.apply()` method is used to construct 2 new columns instead of iterating within a loop considering the performance and code readability.
@@ -67,12 +67,12 @@
 - While doing the task, I assumed that parts not having any value in holes column are not having any hole at all. Otherwise, it would be not be possible to estimate the `null` values since there is no any relation with other columns or another data source to extract from.
 - Finally, the dataframe including new columns is saved to a `.parquet` file under the `data` folder to be able to have the processed dataframe in the possible next steps.
 <br>
-<br>
+
 # Architecture Diagram
 
 ![diagram.png](images/diagram.png)
 <br>
-<br>
+
 # Side Notes, Fun Facts & About the Assesment
 
 - In the beginning of the task, I spent some respectable time trying to determine if the given challenge was as plain as it has appeared or there were any tricky parts I was missing at the first glance. I went through all the dataframe columns (sample values, shape, stats, etc.) to get if there are any correlations hard to see in the beginning. Then I realised that the challenge was as straight as described without over-complication. I think it was the most challenging part within the whole task for me.
@@ -81,7 +81,7 @@
 - Regarding the difficulty level and evaluation criteria of the task, it should currently provide an idea about the candidate. However, it would not be surprising to see more challenging sections, in my opinion. Some challenges, such as finding meaningful relationships between the columns and optimizing a pipeline together with the explanations, would not make the task too difficult and could provide additional insights about the solver.
 - Everything given in the description was pretty straightforward, even tough I thought it was not for a while and tried to over-complicate by myself :). There is just a tiny typo I could mention on `has_unreacheable_hole_error` in the 2nd page of the PDF under *‘Unreachable Holes Messages’* paragraph where it supposed to be `has_unreacheable_hole_error` . I assume it is just a mistyped extra letter *‘e’* in *‘unreacheable’.*
 <br>
-<br>
+
 # Tools & Libraries Used
 
 ### **Tools:**
