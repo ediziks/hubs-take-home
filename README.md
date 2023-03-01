@@ -39,10 +39,12 @@
 
 - There were *9789* `null` values in the `holes` column, these rows could be filled if there would be meaningful values that are extractable from the other columns, or values that could be dropped to increase the processing speed since the `null` hole values are making *~%49* of the data. But none of the choices would be applicable in this case since there is no values to fill from - *indeed, the part might not have any hole at all -,* or a big dataset would make the process slower. So, it is better to keep as it is to have an insight about the non-processable data in the output.
 - Both `warning` and `error` values are calculated considering the given formula as mentioned below. In fact, values having `error` were including the values having `warning` in every occurrence. There could be 2 alternative representing options for values having `warning`:
-
-                                            length > radius * 2 * 10 (poor ratio → warnings)
-                                            length > radius * 2 * 40 (critical ratio → errors)
-
+    
+    ```bash
+    length > radius * 2 * 10  (poor ratio → warnings)
+    length > radius * 2 * 40  (critical ratio → errors)
+    ```
+    
     - **Option 1**: Leaving the `has_unreachable_hole_warning` column `empty or NA` for the values having `has_unreachable_hole_error` as `True`.
     - **Option 2**: Labelling the `has_unreachable_hole_warning` column as `True` when the `has_unreachable_hole_error` is `True` as well.
     
