@@ -35,7 +35,7 @@
 
 - There were many string columns where I assumed they would be misleading in data processing step but there was no need to do any Data Type conversion considering all the string columns were holding data similar to json format. So, it was better to load the data in json format and then doing the evaluations.
 
-<p style="text-align:center;"><img src="images/df_info.png" width=350/></p>
+    <p style="text-align:center;"><img src="images/df_info.png" width=350/></p>
 
 - There were *9789* `null` values in the `holes` column, these rows could be filled if there would be meaningful values that are extractable from the other columns, or values that could be dropped to increase the processing speed since the `null` hole values are making *~%49* of the data. But none of the choices would be applicable in this case since there is no values to fill from - *indeed, the part might not have any hole at all -,* or a big dataset would make the process slower. So, it is better to keep as it is to have an insight about the non-processable data in the output.
 - Both `warning` and `error` values are calculated considering the given formula as mentioned below. In fact, values having `error` were including the values having `warning` in every occurrence. There could be 2 alternative representing options for values having `warning`:
@@ -55,14 +55,14 @@
 - Alternatively, there could be a single common function to check the conditions at once after creating the two new columns with all `null` values and then applying the function only once. It would be more preferable if there would be a big dataframe to process. The method used is preferred because I believe it is easier to read and modify them, considering the code maintainability.
 - `has_unreachable_hole_error` and `has_unreachable_hole_warning` columns moved next to `holes` column to make it easier to read. Afterwards, A heatmap with the counts of `True` and `False` values as below is created to have more understanding about the data. Also, two sub-countplots created to see the `True` and `False` values in a chart individually for error and warning counts. These charts does not consider the holes with `null` values (9789 in total).
 
-<p style="text-align:center;"><img src="images/heatmap.png" width=450/></p>
+    <p style="text-align:center;"><img src="images/heatmap.png" width=450/></p>
 
 - Considering the plot, it could be said that there are:
     - 39 parts have unreachable hole error over 10211 parts having a hole. Around ~%0.38, and ~%0.02 considering the whole parts.
     - 287 parts have unreachable hole warning (**with hole error**). Around ~%2.81, and ~%1.43 considering the whole parts.
     - 326 parts have unreachable hole warning (******************************without hole error******************************). Around ~%3.19, and ~%1.63 considering the whole parts.
 
-<p style="text-align:center;"><img src="images/countplots.png" width=1000/></p>
+    <p style="text-align:center;"><img src="images/countplots.png" width=1000/></p>
 
 - While doing the task, I assumed that parts not having any value in holes column are not having any hole at all. Otherwise, it would be not be possible to estimate the `null` values since there is no any relation with other columns or another data source to extract from.
 - Finally, the dataframe including new columns is saved to a `.parquet` file under the `data` folder to be able to have the processed dataframe in the possible next steps.
