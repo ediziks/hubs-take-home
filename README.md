@@ -89,11 +89,11 @@
 ### **Tools:**
 
 - **Python3, Jupyter Notebook:** Code implementation and experimenting
-- **Notion: N**otes and documentation
+- **Notion:** Notes and documentation
 - **Excalidraw:** Architecture Diagram
 
 ### **Libraries:**
 
 - **Pandas:** Dataframe management
 - **Json:** Data extraction
-- ******************************************Matplotlib, Seaborn:****************************************** Data Visualization
+- **Matplotlib, Seaborn:** Data Visualization
