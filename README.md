@@ -45,8 +45,8 @@
     length > radius * 2 * 40  (critical ratio → errors)
     ```
     
-    - **Option 1**: Leaving the `has_unreachable_hole_warning` column `empty or NA` for the values having `has_unreachable_hole_error` as `True`.
-    - **Option 2**: Labelling the `has_unreachable_hole_warning` column as `True` when the `has_unreachable_hole_error` is `True` as well.
+    - **Option 1**: Leaving `has_unreachable_hole_warning` column `empty or NA` for the values having `has_unreachable_hole_error` as `True`.
+    - **Option 2**: Labelling `has_unreachable_hole_warning` column as `True` when the `has_unreachable_hole_error` is `True` as well.
     
     I followed the **Option 2** as in the sample below since there might be misleading values in `has_unreachable_hole_warning` when it is inspected without taking `has_unreachable_hole_error` column into consideration.
     
