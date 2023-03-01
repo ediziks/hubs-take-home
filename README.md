@@ -28,7 +28,7 @@
     jupyter notebook unreachable_holes.ipynb
     ```
     
-- Finally, the new `parquet` file can be find under `data/` folder named as `2023 DE_case_dataset_holes_error_warning.gz.parquet`.
+- Finally, the new `parquet` file can be found under `data/` folder named as `2023 DE_case_dataset_holes_error_warning.gz.parquet`.
 <br>
 
 # Insights
