@@ -61,8 +61,8 @@
 
 - Considering the plot, it could be said that there are:
     - 39 parts have unreachable hole error over 10211 parts having a hole. Around ~%0.38, and ~%0.02 considering the whole parts.
-    - 287 parts have unreachable hole warning (**with hole error**). Around ~%2.81, and ~%1.43 considering the whole parts.
-    - 326 parts have unreachable hole warning (******************************without hole error******************************). Around ~%3.19, and ~%1.63 considering the whole parts.
+    - 287 parts have unreachable hole warning (**without hole error**). Around ~%2.81, and ~%1.43 considering the whole parts.
+    - 326 parts have unreachable hole warning (******************************both with & without hole error******************************). Around ~%3.19, and ~%1.63 considering the whole parts.
 
     <p style="text-align:center;"><img src="images/countplots.png" width=1000/></p>
 
