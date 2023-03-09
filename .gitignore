@@ -1,0 +1,9 @@
+# Folders
+data/
+.ipynb_checkpoints/
+
+# Files
+*.pdf
+
+# General
+.DS_Store
